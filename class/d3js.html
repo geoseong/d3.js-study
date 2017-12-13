@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>d3.js 수업</title>
+  <!-- <script src="lib/d3/d3.js defer"></script>
+  <script src="mySource.js defer"></script> -->
+  <style media="screen">
+    .area {
+      padding: 1em;
+      background-color: rgb(246, 249, 255);
+      width: 600px;
+      min-height: 200px;
+      margin: 1em;
+    }
+    p.subj {
+      font-size: x-large;
+      font-weight: 1000;
+      font-style: italic;
+    }
+    p {
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <div class='area'>
+    <p class="subj">d3.js버전</p>
+    <p># 최신버전 : V4 - ES6로 개발</p>
+    <p># 이전버전 : V3 - ES5로 개발, d3.js v3.5.17로 검색</p>
+    <p></p>
+    <p># bar와 line 그래프</p>
+    <p>- V3와 V4 모두 다름</p>
+  </div>
+
+  <div class='area'>
+    <p class="subj">&lt;script src&gt; 안에 defer를 써라.</p>
+    <p>defer는 body태그 안의 DOM이 모두 렌더링 된 이후에 불러오라는 뜻임.</p>
+    <p>그래서 head안에다가 script를 써도 됨.</p>
+    <p>HTML5표준이 되면서 널리 쓰임.</p>
+  </div>
+
+  <div class='area'>
+    <p class="subj">D3.js 기본</p>
+    <ul>
+      <li><p>D3 : Data Driven Documents</p></li>
+      <li><p>Data 기반의 시각화 JavaScript라이브러리</p></li>
+      <p>- HTML5, SVG, CSS, DOM 등의 표준 기술 사용</p>
+      <li><p>모든 기능이 아닌 핵심 기능 제공</p></li>
+    </ul>
+  </div>
+
+  <div class='area'>
+    <p class="subj">d3.select()</p>
+    <ul>
+      <li><p>Doc link : <a href="https://github.com/d3/d3-selection/blob/master/README.md#select" target="_blank">https://github.com/d3/d3-selection/blob/master/README.md#select</a></p></li>
+      <li><p>method chain을 할 수 있도록 d3 인스턴스 반환</p></li>
+      <li><p>document.querySelector()와 기능이 같음</p></li>
+    </ul>
+  </div>
+
+  <div class='area'>
+    <p class="subj">selection.select()</p>
+    <ul>
+      <li><p>selection</p></li>
+      <p>- d3.select()로 생성한 인스턴스를 나타냄</p>
+      <li>selection.select()<p></p></li>
+      <p>- selection을 대상으로 select() 수행</p>
+      <p>- 첫번째로 매치되는 엘리먼트 반환</p>
+    </ul>
+  </div>
+
+  <div class='area'>
+    <p class="subj">filter()</p>
+    <ul>
+      <li><p>selection.filter()</p></li>
+      <p>- selection 을 대상으로 필터링</p>
+      <li><p>파라미터에 selector, 함수 작성 가능</p></li>
+    </ul>
+  </div>
+
+  <div class='area'>
+    <p class="subj">attr()</p>
+    <ul>
+      <li><p>selection.attr() : selection을 대상으로 속성값 반환 또는 설정</p></li>
+      <li><p>두 번째 파라미터를 잓어하지 않으면</p></li>
+      <p>- selection에 포함된 엘리먼트의 속성 값 반환</p>
+      <li><p>두 번째 파라미터 작성</p></li>
+      <p>- selection에 포함된 엘리먼트의 속성에 값 설정  ex) ('x', 100)</p>
+      <p>- selection 인스턴스 반환<p>
+      <li><p>두 번째 파라미터에 function도 들어간다. 단, return값이 null이면 속성 삭제한다.</p></li>
+    </ul>
+  </div>
+
+  <div class='area'>
+    <p class="subj">classed()</p>
+    <ul>
+      <li><p>selection.classed()</p></li>
+        <p>- selection을 대상으로 className 설정. selection 반환</p>
+      <li><p>두번째 파라미터에 true를 작성하면</p></li>
+      <p>- selection 엘리먼트에 className 설정</p>
+      <li><p>두번째 파라미터에 true를 작성하지 않으면</p></li>
+      <p>- 엘리먼트에 className 설정하지 않음.</p>
+    </ul>
+  </div>
+
+  <div class='area'>
+    <p class="subj">style()</p>
+    <ul>
+      <li><p>selection.style()</p></li>
+      <li><p>attr()는 svg상의 속성이고, style()은 css상의 속성이다.</p></li>
+      <li><p>파라미터</p></li>
+      <p>1. name</p>
+      <p>2. value : return null이면 style삭제.</p>
+      <p>3. priority : important 작성. 그러나 웬만하면 쓰지 않도록.</p>
+    </ul>
+  </div>
+
+  <div class='area'>
+    <p class="subj">property()</p>
+    <ul>
+      <li><p>selection.property()</p></li>
+      <p>- HTML의 value, checked와 같은 속성이 대상</p>
+      <li><p>파라미터</p></li>
+      <p>1. name, 2. value</p>
+      <li><p>두번째 파라미터</p></li>
+      <p>미작성 시 첫번째 파라미터의 속성값 반환</p>
+    </ul>
+  </div>
+
+  <div class='area'>
+    <p class="subj">text()</p>
+    <ul>
+      <li><p>selection.text()</p></li>
+      <li><p>파라미터</p></li>
+      <p>1. value</p>
+    </ul>
+  </div>
+
+  <div class='area'>
+    <p class="subj">html()</p>
+    <ul>
+      <li><p>selection.html()</p></li>
+      <li><p>파라미터</p></li>
+      <p>1. value</p>
+      <li><p>innerHTML의 쓰임과 같다.</p></li>
+      <li><p>함수에서 null반환 시 컨텐츠 삭제</p></li>
+    </ul>
+  </div>
+
+  <div class='area'>
+    <p class="subj">append()</p>
+    <ul>
+      <li><p>selection.append()</p></li>
+      <li><p>파라미터</p></li>
+      <p>- type: tag이름 || function(){}</p>
+      <li><p>파라미터에 함수 작성</p></li>
+      <p>- 함수에서 엘리먼트를 생성해야 함</p>
+      <p>- 함수에서 반환된 엘리먼트를 마지막 차일드로 첨부</p>
+    </ul>
+  </div>
+
+  <div class='area'>
+    <p class="subj">insert()</p>
+    <ul>
+      <li><p>selection.insert()</p></li>
+      <p>- selection엘리먼트의 마지막 차일드로 첨부</p>
+      <li><p>append와 insert의 차이점</p></li>
+      <p>1. insert의 첫번째 파라미터에는 추가될 DOM 타입을 지정할 수 있다.</p>
+      <p>2. &lt;div&gt;text&lt;div&gt;에서 ..</p>
+      <p>append() -> &lt;div&gt;text<b><i> + 'append'</i></b>&lt;div&gt;</p>
+      <p>insert() -> &lt;div&gt;'<b><i>insert' + </i></b>text&lt;div&gt;</p>
+    </ul>
+  </div>
+
+  <div class='area'>
+    <p class="subj">data()</p>
+    <ul>
+      <li><p>selection.data()</p></li>
+      <li><p>파라미터에 텍스트로 설정할 배열 데이터 삽입하면, 각 selector에다가 mapping을 시킴</p></li>
+      <li><p></p></li>
+      <li><p></p></li>
+    </ul>
+  </div>
+
+  <div class='area'>
+    <p class="subj">enter()</p>
+    <ul>
+      <li><p>selection.enter()</p></li>
+      <p>- selection의 각 엘리먼트에 데이터를 <b><i>(명시적으로, data처럼 암묵적인 것이 아닌.)</i></b> 바인딩</p>
+      <p>- selection에 엘리먼트가 없을 때 바인딩하기 위해 사용</p>
+      <p>- 엘리먼트를 생성하면 데이터를 바인딩하게 됨</p>
+    </ul>
+  </div>
+
+  <div class='area'>
+    <p class="subj">on()</p>
+    <ul>
+      <li><p>selection.on()</p></li>
+      <li><p>첫번째 파라미터</p></li>
+      <p>- 이벤트 타입: click</p>
+      <li><p>두번째 파라미터</p></li>
+      <p>-이벤트 리스너</p>
+      <p>파라미터 : datum, index, group(selection 전체)</p>
+    </ul>
+  </div>
+
+  <div class='area'>
+    <p class="subj">Bar 차트</p>
+    <ul>
+      <li><p>값을 막대 길이로 표현.</p></li>
+      <li><p>가로/세로 방향으로 표시</p></li>
+    </ul>
+  </div>
+
+</body>
+</html>
