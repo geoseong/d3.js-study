@@ -8,7 +8,7 @@ d3.js 교육 스터디
 - `class/template.html`, `class/mySource.js` :  
 강의내용 정리를 위해 썼던 파일이므로 무시해도 됨.
 
-- `00.xxxx.html` :  
+- `class/00.xxxx.html` :  
 강의내용 분류별 실습문서.
 
 ### Comment
